@@ -115,7 +115,7 @@
         }
 
         .f8 {
-            top: 1700px;
+            top: 1800px;
             right: 500px;
             --rotacion: -2deg;
         }
@@ -134,6 +134,31 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
             font-size: 1.3rem;
             transform: rotate(7deg);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                transform: scale(0.6);
+                transform-origin: top left;
+                width: 170%;
+                overflow-x: auto;
+            }
+
+            .titulo {
+                font-size: 1.5rem;
+                padding: 10px;
+            }
+
+            .mensaje-final {
+                font-size: 1rem;
+                margin-left: 20px;
+                margin-right: 20px;
+                transform: none;
+            }
+
+            .emoji {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
