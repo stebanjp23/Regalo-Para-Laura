@@ -59,28 +59,29 @@
     <button onclick="verificarCodigo()">Entrar</button>
 
     <div class="error" id="mensajeError"></div>
-    <img id="imagenError" src="/IMG/incorrecta.PNG" alt="Error" style="display: none; width: 200px; margin-top: 20px;">
+    <img id="imagenError" src="/Regalo-Para-Laura/IMG/incorrecta.PNG" alt="Error" style="display: none; width: 100px; margin-top: 20px;">
 
     <script>
+    function verificarCodigo() {
+        const codigoCorrecto = "20060719";
+        const input = document.getElementById("codigo").value;
+        const mensaje = document.getElementById("mensajeError");
+        const imagenError = document.getElementById("imagenError");
 
-        function verificarCodigo() {
-            mensaje.textContent = ""; // limpia mensaje previo
-            imagenError.style.display = "none"; // oculta imagen si estaba visible
+        // Limpiar intentos previos
+        mensaje.textContent = "";
+        imagenError.style.display = "none";
 
-            const codigoCorrecto = "pastelito";
-            const input = document.getElementById("codigo").value;
-            const mensaje = document.getElementById("mensajeError");
-            const imagenError = document.getElementById("imagenError"); // <- corregido
-
-            if (input === codigoCorrecto) {
-                // Redirecciona a la web del regalo
-                window.location.href = "https://tuusuario.github.io/sorpresa-final/";
-            } else {
-                mensaje.textContent = "❌ Código incorrecto. Inténtalo otra vez.";
-                imagenError.style.display = "block";
-            }
+        if (input === codigoCorrecto) {
+            // Redirecciona a la web del regalo
+            window.location.href = "https://tuusuario.github.io/sorpresa-final/inicio";
+        } else {
+            mensaje.textContent = "❌ Código incorrecto";
+            imagenError.style.display = "block";
         }
-    </script>
+    }
+</script>
+
 </body>
 
 </html>
