@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: none;
+            background-color: #ff69b4;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+        }
+
+        .error {
+            color: #ff6b6b;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔐 Regalo para Laura</h1>
+    <p>Introduce la contraseña para continuar:</p>
+
+    <input type="password" id="codigo" placeholder="Código secreto...">
+    <button onclick="verificarCodigo()">Entrar</button>
+
+    <div class="error" id="mensajeError"></div>
+    <img id="imagenError" src="/IMG/incorrecta.PNG" alt="Error" style="display: none; width: 200px; margin-top: 20px;">
+
+    <script>
+
+        function verificarCodigo() {
+            mensaje.textContent = ""; // limpia mensaje previo
+            imagenError.style.display = "none"; // oculta imagen si estaba visible
+
+            const codigoCorrecto = "pastelito";
+            const input = document.getElementById("codigo").value;
+            const mensaje = document.getElementById("mensajeError");
+            const imagenError = document.getElementById("imagenError"); // <- corregido
+
+            if (input === codigoCorrecto) {
+                // Redirecciona a la web del regalo
+                window.location.href = "https://tuusuario.github.io/sorpresa-final/";
+            } else {
+                mensaje.textContent = "❌ Código incorrecto. Inténtalo otra vez.";
+                imagenError.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>
