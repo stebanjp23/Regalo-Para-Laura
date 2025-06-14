@@ -38,12 +38,11 @@
             font-size: 2.5rem;
             text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
             box-shadow: 0 4px 20px rgba(65, 65, 65, 0.24);
-            position: relative;
             z-index: 5;
         }
 
         .titulo h1 {
-            margin: 0;
+            margin: 10px;
             font-size: 2.5rem;
         }
 
@@ -101,10 +100,12 @@
 
             .titulo {
                 padding: 10px;
+                height: 100px;
+                font-size: 3rem;
             }
 
             .titulo h1 {
-                font-size: 1.6rem;
+                font-size: 3rem;
                 line-height: 1.3;
             }
 
@@ -114,52 +115,128 @@
             }
 
             .f1 {
-                top: 50px;
+                top: 10px;
                 left: 30px;
                 --rotacion: -8deg;
             }
 
             .f2 {
-                top: 250px;
-                right: 89px;
-                --rotacion: 5deg;
+                top: 20px;
+                right: 90px;
+                --rotacion: 2deg;
             }
 
             .f3 {
-                top: 800px;
+                top: 550px;
                 right: 500px;
-                --rotacion: -3deg;
+                --rotacion: -2deg;
             }
 
             .f4 {
-                top: 500px;
-                left: 400px;
+                top: 350px;
+                left: 350px;
                 --rotacion: 8deg;
             }
 
             .f5 {
-                top: 1000px;
+                top: 850px;
                 left: 100px;
                 --rotacion: -9deg;
             }
 
             .f6 {
-                top: 1200px;
+                top: 1050px;
                 right: 200px;
-                --rotacion: 12deg;
+                --rotacion: 10deg;
             }
 
             .f7 {
-                top: 1640px;
-                left: 300px;
+                top: 1500px;
+                left: 420px;
                 --rotacion: 9deg;
             }
 
             .f8 {
-                top: 1800px;
+                top: 1650px;
                 right: 500px;
                 --rotacion: -2deg;
             }
+
+            iframe {
+                height: 220px;
+            }
+
+            .btn-video {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Botón para abrir video */
+        .btn-video {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background-color: #ff527b;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 82, 123, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-video:hover {
+            background-color: #e6456a;
+        }
+
+        /* Modal fondo */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            padding: 20px;
+        }
+
+        /* Contenedor del video */
+        .modal-content {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Botón cerrar */
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 13px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff527b;
+            cursor: pointer;
+            user-select: none;
+            z-index: 60;
+        }
+
+        /* Video responsivo */
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 12px;
+            display: block;
         }
     </style>
 </head>
@@ -167,6 +244,12 @@
 <body>
     <div class="titulo">
         <h1>Feliz Cumpleaños Laura!</h1>
+    </div>
+
+    <div class="mensaje-final">
+        <h2>🎂 ¡Te queremos mucho, Laura! 🎂</h2>
+        <p>Este pequeño regalo es solo un reflejo de lo especial que eres. Gracias por ser tú. 💕</p>
+        <div></div>
     </div>
 
     <div class="galeria">
@@ -180,17 +263,31 @@
         <div class="polaroid f8"><img src="IMG/f7.png" alt="foto7" /></div>
     </div>
 
-    <div class="mensaje-final">
-        <h2>🎂 ¡Te queremos mucho, Laura! 🎂</h2>
-        <p>Este pequeño regalo es solo un reflejo de lo especial que eres. Gracias por ser tú. 💕</p>
-    </div>
+
+
+    <button class="btn-video" id="openModalBtn">🎥 Ver video sorpresa</button>
 
     <div id="emoji-container"></div>
+
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <!-- Cambia el src por el link de tu video (Youtube, Vimeo, etc) -->
+            <iframe
+                id="videoFrame" 
+                width="560" height="315"
+               src="https://www.youtube.com/embed/aarSUQXtZ1A?autoplay=1&mute=0&controls=0"
+                title="YouTube video player" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
 
     <script>
         const emojis = ['💖', '🎉', '🥳', '🌈', '✨'];
         const emojiContainer = document.getElementById('emoji-container');
-        const total = 40;
+        const total = 20;
 
         const bouncingEmojis = [];
 
@@ -225,7 +322,33 @@
         }
 
         animate();
+
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const videoModal = document.getElementById('videoModal');
+        const videoFrame = document.getElementById('videoFrame');
+
+        openModalBtn.addEventListener('click', () => {
+            videoModal.style.display = 'flex';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            videoModal.style.display = 'none';
+            // Pausar el video reiniciando el src
+            videoFrame.src = videoFrame.src;
+        });
+
+        // Cerrar modal si clicas fuera del contenido
+        window.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.style.display = 'none';
+                videoFrame.src = videoFrame.src;
+            }
+        });
+
     </script>
+
+
 </body>
 
 </html>
