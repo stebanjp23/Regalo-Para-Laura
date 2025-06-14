@@ -2,11 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regalo :) </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Regalo :)</title>
 
     <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 2200px;
+            /* para permitir scroll y mostrar todas las fotos */
+            margin: 0;
+            background: linear-gradient(to bottom, #ffb6b6, #ffdada);
+        }
+
         #emoji-container {
             position: fixed;
             top: 0;
@@ -15,25 +24,164 @@
             height: 100%;
             overflow: hidden;
             z-index: -1;
-            background-color: #ff9595;
+            background-color: transparent;
         }
 
         .emoji {
             position: absolute;
-            font-size: 2.5rem;
+            font-size: 3rem;
             user-select: none;
             pointer-events: none;
         }
-    </style>
 
+        .titulo {
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            color: #fff;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(65, 65, 65, 0.24);
+            top: 0;
+            z-index: 5;
+        }
+
+        /* Polaroid style photo container */
+        .polaroid {
+            position: absolute;
+            width: 450px;
+            padding: 10px 10px 60px 10px;
+            /* más espacio abajo */
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transform: rotate(var(--rotacion));
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .polaroid img {
+            width: 100%;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05) rotate(var(--rotacion));
+            z-index: 10;
+        }
+
+        /* Posiciones y rotaciones específicas */
+        .f1 {
+            margin-top: -50px;
+            left: 30px;
+            --rotacion: -8deg;
+        }
+
+        .f2 {
+            top: 250px;
+            right: 89px;
+            --rotacion: 5deg;
+        }
+
+        .f3 {
+            top: 800px;
+            right: 500px;
+            --rotacion: -3deg;
+        }
+
+        .f4 {
+            top: 500px;
+            left: 400px;
+            --rotacion: 8deg;
+        }
+
+        .f5 {
+            top: 1000px;
+            left: 100px;
+            --rotacion: -9deg;
+        }
+
+        .f6 {
+            top: 1200px;
+            right: 200px;
+            --rotacion: 12deg;
+        }
+
+        .f7 {
+            top: 1640px;
+            left: 300px;
+            --rotacion: 9deg;
+        }
+
+        .f8 {
+            top: 1700px;
+            right: 500px;
+            --rotacion: -2deg;
+        }
+
+        /* Mensaje final */
+        .mensaje-final {
+            margin-top: 20px;
+            text-align: center;
+            padding: 40px;
+            color: #333;
+            background-color: #fff4f4;
+            border-radius: 15px;
+            max-width: 600px;
+            margin-left: 580px;
+            margin-right: auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            font-size: 1.3rem;
+            transform: rotate(7deg);
+        }
+    </style>
 </head>
 
 <body>
-    <div id="emoji-container">
-        <div>
-            <h1>Feliz Cumpleaños Laura!</h1>
-        </div>
+    <div class="titulo">
+        <h1>Feliz Cumpleaños Laura!</h1>
     </div>
+
+    <div class="polaroid f1">
+        <img src="IMG/f1.png" alt="foto1" />
+    </div>
+
+    <div class="polaroid f2">
+        <img src="IMG/f2.png" alt="foto2" />
+    </div>
+
+    <div class="polaroid f3">
+        <img src="IMG/f8.jpg" alt="foto8" />
+    </div>
+
+    <div class="polaroid f4">
+        <img src="IMG/f3.png" alt="foto3" />
+    </div>
+
+    <div class="polaroid f5">
+        <img src="IMG/f4.png" alt="foto4" />
+    </div>
+
+    <div class="polaroid f6">
+        <img src="IMG/f6.jpg" alt="foto6" />
+    </div>
+
+    <div class="polaroid f7">
+        <img src="IMG/f5.jpg" alt="foto5" />
+    </div>
+
+    <div class="polaroid f8">
+        <img src="IMG/f7.png" alt="foto7" />
+    </div>
+
+    <div class="mensaje-final">
+        <h2>🎂 ¡Te queremos mucho, Laura! 🎂</h2>
+        <p>Este pequeño regalo es solo un reflejo de lo especial que eres. Gracias por ser tú. 💕</p>
+    </div>
+
+    <div id="emoji-container"></div>
+
     <script>
         const emojis = ['💖', '🎉', '🥳', '🌈', '✨'];
         const emojiContainer = document.getElementById('emoji-container');
@@ -75,7 +223,6 @@
 
         animate();
     </script>
-
 </body>
 
 </html>
