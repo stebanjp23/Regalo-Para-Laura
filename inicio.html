@@ -157,6 +157,27 @@
             display: block;
         }
 
+        .mensaje-filosofico {
+            padding: 30px;
+            background-color: #fff9f9;
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-family: 'Georgia', serif;
+            text-align: left;
+            max-width: 700px;
+        }
+
+        .texto-filosofico p {
+            margin-bottom: 20px;
+        }
+
+        .texto-filosofico q {
+            font-style: italic;
+            color: #cc3366;
+        }
+
+
         /* 🎯 SOLO para pantallas grandes: diseño libre */
         @media (min-width: 768px) {
             .galeria {
@@ -279,15 +300,40 @@
     <div id="emoji-container"></div>
 
     <div id="videoModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content mensaje-filosofico">
             <span class="close-btn" id="closeModalBtn">&times;</span>
-            <iframe id="videoFrame"
-                src="https://www.youtube.com/embed/aarSUQXtZ1A?si=HcAX-8gpwHNaja4E" title="YouTube video player"
-                style="border: none;"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="texto-filosofico">
+                <p><strong>Laura,</strong></p>
+
+                <p>
+                    En este punto exacto del universo digital,<br />
+                    donde debería reproducirse un video con palabras titubeantes, bromas internas, y alguna
+                    lagrimita…<br />
+                    <em>solo hay silencio.</em>
+                </p>
+
+                <p>
+                    Y sin embargo, como bien dijo Descartes:<br />
+                    <q>“Pienso, luego existo.”</q><br />
+                    Nosotros pensamos en ti —y te celebramos—, por lo tanto, tú existes en nuestra alegría.
+                </p>
+
+                <p>
+                    Zaratustra, por su parte, tal vez hubiese dicho:<br />
+                    <q>“Los verdaderos regalos no se graban, se sienten.”</q>
+                </p>
+
+                <p>
+                    Así que aunque el video no llegó (porque, bueno... la humanidad sigue en beta),<br />
+                    el cariño está. La intención también.<br />
+                    Y tú, querida Laura, sigues siendo la razón de esta pequeña página llena de colores, fotos y afecto.
+                </p>
+
+                <p><strong>Feliz cumpleaños, luminosa criatura del caos ordenado. 🎂✨</strong></p>
+            </div>
         </div>
     </div>
+
 
 
     <script>
